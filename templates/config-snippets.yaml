@@ -1,0 +1,35 @@
+# ============================================================
+# 多 Bot 频道关键配置片段
+# 将这些内容合并到你的各 Bot 配置文件中
+# ============================================================
+
+# --- 每个 Bot 的 config.yaml ---
+
+require_mention: true          # 必须：非 @ 不响应
+
+discord:
+  auto_thread: false           # 必须：多 Bot 频道禁用子区
+
+curator:
+  enabled: true
+  auto_merge: true             # 推荐：自动合并相似 skill
+  pin_protection: true         # 推荐：Pin 住的 skill 永不误删
+  interval_hours: 168          # 每周清理一次
+  min_idle_hours: 2
+  stale_after_days: 30
+  archive_after_days: 90
+
+# --- 主 Bot 的 .env 文件 ---
+
+# 允许接收其他 Bot 的 @mention（仅主/调度 Bot 需要）
+DISCORD_ALLOW_BOTS=mentions
+
+# Bot Token（Discord Developer Portal → Bot → Token）
+DISCORD_BOT_TOKEN=MTxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# --- 各 Bot 独立端口（避免冲突） ---
+
+# Bot A (总管):  port: 8100
+# Bot B (情报官): port: 8101
+# Bot C (风控官): port: 8102
+# ... 每个 Bot 的 config.yaml 里端口必须不同
