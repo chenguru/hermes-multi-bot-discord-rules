@@ -91,7 +91,8 @@ systemctl --user restart hermes-gateway-{bot-name}
 
 ```
 ├── SKILL.md                 # 核心 Skill（给 Bot 读的）
-├── README.md                # 本文件（给你读的）
+├── README.md                # 中文说明（本文件）
+├── README_EN.md             # English README
 ├── templates/
 │   ├── SOUL-template.md     # 风格隔离声明模板
 │   └── config-snippets.yaml # 关键配置片段
